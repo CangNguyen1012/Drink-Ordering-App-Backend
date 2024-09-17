@@ -15,6 +15,8 @@ const upload = multer({
 })
 
 // /api/my/store
+router.get("/", jwtCheck, jwtParse, MyStoreController.getMyStore)
+
 router.post(
     "/",
     upload.single("imageFile"),

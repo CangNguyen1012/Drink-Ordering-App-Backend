@@ -3,6 +3,21 @@ import Store from "../models/store"
 import cloudinary from "cloudinary"
 import mongoose from "mongoose"
 
+const getMyStore = async (req: Request, res: Response) => {
+    try {
+        const store = await Store.findOne({ user: req.userId })
+
+        if (!store) {
+            return res.status(404).json({ message: "Store not found" })
+        }
+
+        res.json(store)
+    } catch (error) {
+        console.log("error", error)
+        res.status(500).json({ message: "Error fetching store" })
+    }
+}
+
 const createMyStore = async (req: Request, res: Response) => {
     try {
         const existingStore = await Store.findOne({ user: req.userId })
@@ -33,5 +48,6 @@ const createMyStore = async (req: Request, res: Response) => {
 }
 
 export default {
+    getMyStore,
     createMyStore,
 }
