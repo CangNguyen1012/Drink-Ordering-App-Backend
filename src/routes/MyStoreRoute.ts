@@ -26,4 +26,13 @@ router.post(
     MyStoreController.createMyStore,
 )
 
+router.put(
+    "/",
+    upload.single("imageFile"),
+    validateMyStoreRequest,
+    jwtCheck,
+    jwtParse,
+    MyStoreController.updateMyStore,
+)
+
 export default router
