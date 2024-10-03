@@ -15,6 +15,15 @@ const upload = multer({
 })
 
 // /api/my/store
+router.get("/order", jwtCheck, jwtParse, MyStoreController.getMyStoreOrders)
+
+router.patch(
+    "/order/:orderId/status",
+    jwtCheck,
+    jwtParse,
+    MyStoreController.updateOrderStatus,
+)
+
 router.get("/", jwtCheck, jwtParse, MyStoreController.getMyStore)
 
 router.post(
