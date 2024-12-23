@@ -3,7 +3,6 @@ import Store from "../models/store"
 import cloudinary from "cloudinary"
 import mongoose from "mongoose"
 import Order from "../models/order"
-import { request } from "http"
 
 const getMyStore = async (req: Request, res: Response) => {
     try {

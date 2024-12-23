@@ -1,5 +1,5 @@
 import Stripe from "stripe"
-import { Request, response, Response } from "express"
+import { Request, Response } from "express"
 import Store, { MenuItemType } from "../models/store"
 import Order from "../models/order"
 
